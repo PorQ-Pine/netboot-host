@@ -2,4 +2,5 @@
 
 cd "$(dirname ""${0}"")"
 
-nbdkit -f -v -r file nbd/rootfs.squashfs
+nbdkit -r file nbd/rootfs.squashfs -p 10809
+nbdkit --filter=cow --filter=partition linuxdisk nbd/boot type=ext4 size=1G -p 10810 partition=1

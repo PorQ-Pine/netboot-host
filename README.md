@@ -3,7 +3,7 @@
 This magic repository allows you to boot Quill OS on your PineNote without ever writing anything to its internal eMMC.
 
 ## Disclaimer
-Please note that the Quill OS developers provide NO WARRANTY about the software. Use the following instructions at your own risk!
+Please note that the Quill OS developers provide NO WARRANTY whatsoever about this software. Use the following instructions at your own risk!
 
 ## Instructions
 1. Install `dropbear`, `wget`, `lrzsz` and `nbdkit` on your host PC.

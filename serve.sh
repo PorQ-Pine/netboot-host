@@ -14,8 +14,10 @@ QINIT_BINARIES="${BOOT_DIR}/qinit_binaries.squashfs"
 EBC_WBF="ebc.wbf"
 CUSTOM_WF="custom_wf.bin"
 EKM="eink-kernel-magic"
-IMAGE="${BOOT_DIR}/Image.gz"
+IMAGE_GZ="${BOOT_DIR}/Image.gz"
+IMAGE="${BOOT_DIR}/Image"
 DTB="${BOOT_DIR}/DTB"
+BOOT_BLOB="${BOOT_DIR}/boot.bin"
 
 if [ ! -e "${RSA_KEY}" ]; then
 	dropbearkey -t rsa -f "${RSA_KEY}"
@@ -33,12 +35,16 @@ if [ ! -e "${QINIT_BINARIES}" ]; then
 	wget -O "${QINIT_BINARIES}" "${SERVER}/qinit_binaries.squashfs"
 fi
 
-if [ ! -e "${IMAGE}" ]; then
-	wget -O "${IMAGE}" "${SERVER}/Image.gz"
-fi
-
 if [ ! -e "${DTB}" ]; then
 	wget -O "${DTB}" "${SERVER}/DTB"
+fi
+
+if [ ! -e "${IMAGE}" ]; then
+	wget -O "${IMAGE_GZ}" "${SERVER}/Image.gz"
+	gzip -dc "${IMAGE_GZ}" > "${IMAGE}"
+	dd if=/dev/zero of="${BOOT_BLOB}" bs=1M count=40
+	dd if="${IMAGE}" of="${BOOT_BLOB}" conv=notrunc
+	cat "${DTB}" >> "${BOOT_BLOB}"
 fi
 
 [ ! -e "${EBC_WBF}" ] && [ ! -e "${EKM}/${EBC_WBF}" ] && echo "You must provide ebc.wbf. Please put it at the root directory of this repository." && exit 1

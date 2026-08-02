@@ -2,6 +2,10 @@
 
 This magic repository allows you to boot Quill OS on your PineNote without ever writing anything to its internal eMMC.
 
+<p align="left">
+  <img src="https://github.com/PorQ-Pine/netboot-host/blob/main/screenshot.png?raw=true" width="70%"/>
+</p>
+
 ## Disclaimer
 Please note that the Quill OS developers provide NO WARRANTY whatsoever about this software. Use the following instructions at your own risk!
 

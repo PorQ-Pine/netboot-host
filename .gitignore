@@ -1,6 +1,7 @@
 eink-kernel-magic/
 nbd/boot/DTB
 nbd/boot/Image.gz
+nbd/boot/Image
 nbd/boot/firmware.squashfs
 nbd/boot/qinit_binaries.squashfs
 nbd/boot/rsa_hkey

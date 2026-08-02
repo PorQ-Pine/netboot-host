@@ -14,7 +14,8 @@ QINIT_BINARIES="${BOOT_DIR}/qinit_binaries.squashfs"
 EBC_WBF="ebc.wbf"
 CUSTOM_WF="custom_wf.bin"
 EKM="eink-kernel-magic"
-IMAGE="${BOOT_DIR}/Image.gz"
+IMAGE_GZ="${BOOT_DIR}/Image.gz"
+IMAGE="${BOOT_DIR}/Image"
 DTB="${BOOT_DIR}/DTB"
 
 if [ ! -e "${RSA_KEY}" ]; then
@@ -34,7 +35,8 @@ if [ ! -e "${QINIT_BINARIES}" ]; then
 fi
 
 if [ ! -e "${IMAGE}" ]; then
-	wget -O "${IMAGE}" "${SERVER}/Image.gz"
+	wget -O "${IMAGE_GZ}" "${SERVER}/Image.gz"
+	gzip -dc "${IMAGE_GZ}" > "${IMAGE}"
 fi
 
 if [ ! -e "${DTB}" ]; then

@@ -10,6 +10,7 @@ This magic repository allows you to boot Quill OS on your PineNote without ever 
 Please note that the Quill OS developers provide NO WARRANTY whatsoever about this software. Use the following instructions at your own risk!
 
 ## Instructions
+> **Note:** The OS may run slightly slower in NetBoot mode compared to when it is installed directly on the eMMC. It is still very usable.
 1. Install `dropbear`, `wget`, `lrzsz` and `nbdkit` on your host PC.
 1. Extract your PineNote's waveform. On a default install, it can be fetched with `dd if=/dev/mmcblk0p2 of=ebc.wbf bs=512 status=progress`. Put `ebc.wbf` in the root of the `netboot-host` repository.
 1. Run the `serve.sh` script (does not require root).

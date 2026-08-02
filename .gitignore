@@ -1,0 +1,9 @@
+eink-kernel-magic/
+nbd/boot/DTB
+nbd/boot/Image.gz
+nbd/boot/firmware.squashfs
+nbd/boot/qinit_binaries.squashfs
+nbd/boot/rsa_hkey
+nbd/boot/rsa_hkey.pub
+nbd/boot/waveform/
+nbd/rootfs.squashfs

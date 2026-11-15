@@ -5,7 +5,7 @@ cd "$(dirname ""${0}"")"
 BASE_DIR="nbd"
 BOOT_DIR="${BASE_DIR}/boot"
 
-SERVER="http://23.163.0.39/quill_netboot"
+SERVER="http://23.163.0.39:8000/quill_netboot"
 
 RSA_KEY="${BOOT_DIR}/rsa_hkey"
 FIRMWARE_BLOB="${BOOT_DIR}/firmware.squashfs"
